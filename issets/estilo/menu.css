@@ -1,14 +1,14 @@
 
-#logo{
+#nav{
   background-color: #732ff9;
   height: 5rem;
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
-#logo a{
+#nav a{
   color: white;
 }
-#logo h1{
+#nav h1{
   color: white;
 }
