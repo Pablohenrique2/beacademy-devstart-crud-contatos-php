@@ -11,24 +11,19 @@ function login()
 function cadastro()
 {
   if ($_POST) {
-    if (!empty($_POST['nome']) && strlen($_POST['nome']) > 3 && strlen($_POST['nome']) < 100) {
-      $nome = $_POST['nome'];
-    } else {
-      echo "preencha o campo Nome corretamente: <a href='/cadastro'>Voltar</a>";
-      die();
-    }
-    if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-      $email = $_POST['email'];
-    } else {
-      echo "preencha o campo Email corretamente: <a href='/cadastro'>Voltar</a>";
-      die();
-    }
-    if (!empty($_POST['telefone']) && strlen($_POST['telefone']) > 9 && strlen($_POST['telefone']) < 12) {
-      $telefone = $_POST['telefone'];
-    } else {
-      echo "preencha o campo de telefone corretamente: <a href='/cadastro'>Voltar</a>";
-      die();
-    }
+    include "./issets/src/classes/Validar.php";
+    $nome = $_POST['nome'];
+    $c1 = new Validar();
+    $c1->validarNome($nome);
+
+    $email = $_POST['email'];
+    $c2 = new Validar();
+    $c2->validarEmail($email);
+
+    $telefone = $_POST['telefone'];
+    $c3 = new Validar();
+    $c3->validarTelefone($telefone);
+
     $arquivo = fopen("./issets/dados/contatos.csv", 'a+');
     fwrite($arquivo, "{$nome};{$email};{$telefone}" . PHP_EOL);
     fclose($arquivo);
