@@ -1,0 +1,14 @@
+
+#logo{
+  background-color: #732ff9;
+  height: 5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+#logo a{
+  color: white;
+}
+#logo h1{
+  color: white;
+}
