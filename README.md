@@ -18,7 +18,7 @@ Projeto criado em PHP , foi feito uma agenda de contatos onde você consegue cad
 
 - Tela de home
   ![home](./issets/img/imagens-site/pagina-inicial.png)
-  )
+ 
 
 - Tela de login
   ![login](./issets/img/imagens-site/login.png)
@@ -28,3 +28,7 @@ Projeto criado em PHP , foi feito uma agenda de contatos onde você consegue cad
 
 - Tela de listagem
   ![lista](./issets/img/imagens-site/lista.png)
+  
+ ## Autor
+
+  [@PabloHenrique🚀]()
