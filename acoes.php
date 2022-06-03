@@ -11,6 +11,7 @@ function login()
 function cadastro()
 {
   if ($_POST) {
+
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
