@@ -11,10 +11,24 @@ function login()
 function cadastro()
 {
   if ($_POST) {
-
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
+    if (!empty($_POST['nome']) && strlen($_POST['nome']) > 3 && strlen($_POST['nome']) < 100) {
+      $nome = $_POST['nome'];
+    } else {
+      echo "preencha o campo Nome corretamente: <a href='/cadastro'>Voltar</a>";
+      die();
+    }
+    if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+      $email = $_POST['email'];
+    } else {
+      echo "preencha o campo Email corretamente: <a href='/cadastro'>Voltar</a>";
+      die();
+    }
+    if (!empty($_POST['telefone']) && strlen($_POST['telefone']) > 9 && strlen($_POST['telefone']) < 12) {
+      $telefone = $_POST['telefone'];
+    } else {
+      echo "preencha o campo de telefone corretamente: <a href='/cadastro'>Voltar</a>";
+      die();
+    }
     $arquivo = fopen("./issets/dados/contatos.csv", 'a+');
     fwrite($arquivo, "{$nome};{$email};{$telefone}" . PHP_EOL);
     fclose($arquivo);
