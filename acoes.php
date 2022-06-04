@@ -6,6 +6,19 @@ function home()
 }
 function login()
 {
+
+  $contatos = file("./issets/dados/contatos.csv");
+  if ($_POST) {
+    $email = $_POST['email'];
+    foreach ($contatos as $cadaContatos) {
+      $partes = explode(";", $cadaContatos);
+      if ($email === $partes[1]) {
+        header("location: /");
+      }
+    }
+    $mensage = "Ocorreu algum error ao fazer login!!";
+    include "./issets/telas/mesagemerror.php";
+  }
   include "./issets/telas/login.php";
 }
 function cadastro()
